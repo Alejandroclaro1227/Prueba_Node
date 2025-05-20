@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Pedido</title>
+</head>
+<body>
+    <h2>Crear Pedido</h2>
+    <button onclick="crearPedido()">Crear Pedido de Prueba</button>
+    <pre id="resultado"></pre>
+
+    <script>
+        async function crearPedido() {
+            try {
+                const response = await fetch('http://localhost:3000/orders', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        productId: "PROD001",
+                        quantity: 1,
+                        customerName: "Juan Pérez",
+                        shippingAddress: "Calle Principal 123"
+                    })
+                });
+                
+                const data = await response.json();
+                document.getElementById('resultado').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('resultado').textContent = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html> 
