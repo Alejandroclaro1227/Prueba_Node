@@ -2,6 +2,45 @@
 
 Este proyecto es un sistema completo de tienda online construido con microservicios. Cada servicio es una aplicación independiente que se comunica con los demás a través de llamadas HTTP.
 
+## 🚀 Instalación desde Git
+
+### Paso 1: Clonar el Repositorio
+
+```bash
+# Usando SSH (recomendado)
+git clone git@github.com:Alejandroclaro1227/Prueba_Node.git online-shop
+
+# O usando HTTPS
+git clone https://github.com/Alejandroclaro1227/Prueba_Node.git online-shop
+
+# Entrar al directorio del proyecto
+cd online-shop
+```
+
+### Paso 2: Configurar Git (si no lo has hecho antes)
+
+```bash
+# Configurar tu nombre de usuario
+git config --global user.name "Tu Nombre"
+
+# Configurar tu email
+git config --global user.email "tu.email@ejemplo.com"
+
+# Si usas SSH, asegúrate de tener tu clave SSH configurada en GitHub
+# Para generar una nueva clave SSH:
+ssh-keygen -t ed25519 -C "tu.email@ejemplo.com"
+```
+
+### Paso 3: Crear y Cambiar de Rama (Opcional)
+
+```bash
+# Crear y cambiar a una nueva rama
+git checkout -b nombre-de-tu-rama
+
+# O cambiar a una rama existente
+git checkout nombre-de-la-rama
+```
+
 ## 📋 ¿Qué hace cada servicio?
 
 ### 1. Servicio de Pedidos (order-service) - Puerto 3000
@@ -234,4 +273,93 @@ Para asegurarte de que todo funciona correctamente:
 1. Todos los servicios deben estar corriendo sin errores
 2. Cada servicio debe responder a su endpoint `/health`
 3. Puedes crear un pedido de prueba
-4. El pedido debe pasar por todo el flujo correctamente #
+4. El pedido debe pasar por todo el flujo correctamente
+
+## 🔄 Flujo de Trabajo con Git
+
+### Comandos Básicos
+
+```bash
+# Ver estado de los archivos
+git status
+
+# Agregar archivos modificados
+git add .
+
+# Crear commit
+git commit -m "Descripción de tus cambios"
+
+# Subir cambios a GitHub
+git push origin nombre-de-tu-rama
+```
+
+### Actualizar Repositorio
+
+```bash
+# Obtener cambios del repositorio remoto
+git pull origin main
+
+# Si estás en una rama diferente
+git pull origin nombre-de-tu-rama
+```
+
+### Solución de Problemas con Git
+
+1. **Conflictos en archivos**:
+   ```bash
+   # Obtener los cambios más recientes
+   git fetch origin
+   
+   # Ver diferencias
+   git diff origin/main
+   
+   # Después de resolver conflictos
+   git add .
+   git commit -m "Resueltos conflictos de merge"
+   ```
+
+2. **Revertir cambios locales**:
+   ```bash
+   # Revertir un archivo específico
+   git checkout -- nombre-del-archivo
+
+   # Revertir todos los cambios
+   git reset --hard HEAD
+   ```
+
+3. **Problemas con credenciales**:
+   ```bash
+   # Verificar configuración remota
+   git remote -v
+
+   # Cambiar URL remota (si es necesario)
+   git remote set-url origin git@github.com:Alejandroclaro1227/Prueba_Node.git
+   ```
+
+### Buenas Prácticas
+
+1. **Antes de empezar a trabajar**:
+   ```bash
+   git pull origin main
+   git checkout -b feature/nombre-de-tu-caracteristica
+   ```
+
+2. **Antes de hacer push**:
+   ```bash
+   git add .
+   git status  # Revisar cambios
+   git commit -m "Descripción clara del cambio"
+   git push origin feature/nombre-de-tu-caracteristica
+   ```
+
+3. **Mantener el repositorio limpio**:
+   ```bash
+   # Eliminar ramas locales fusionadas
+   git branch --merged | grep -v '^*' | xargs git branch -d
+
+   # Limpiar archivos no rastreados
+   git clean -n  # Vista previa
+   git clean -f  # Eliminar archivos
+   ```
+
+#
